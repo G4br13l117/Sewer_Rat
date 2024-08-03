@@ -11,15 +11,14 @@ config_version=5
 [application]
 
 config/name="Sewer Rat"
-run/main_scene="res://Levels/test_world.tscn"
+run/main_scene="res://Levels/Testing/test_world.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 window/stretch/scale=3.0
 
 [dotnet]
