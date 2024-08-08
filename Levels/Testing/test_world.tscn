@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbd2ept41mu42"]
+[gd_scene load_steps=24 format=3 uid="uid://dbd2ept41mu42"]
 
 [ext_resource type="Script" path="res://Levels/Testing/test_world.gd" id="1_38m4y"]
 [ext_resource type="Texture2D" uid="uid://cnx6xagbxh6ro" path="res://Asset Packs/Amy6iQ.png" id="1_mcn8y"]
@@ -4557,6 +4557,9 @@ size = Vector2(480, 272)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bhe3"]
 size = Vector2(480, 272)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyy77"]
+size = Vector2(480, 272)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xmib3"]
 blend_mode = 4
 light_mode = 2
@@ -4602,6 +4605,13 @@ debug_color = Color(0.521453, 0.418069, 1, 0.0784314)
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_6bhe3")
 debug_color = Color(0, 0.6, 0.701961, 0.129412)
+
+[node name="Right_Room" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Room"]
+position = Vector2(480, 8)
+shape = SubResource("RectangleShape2D_iyy77")
+debug_color = Color(0.0784314, 0.635294, 0.376471, 0.0784314)
 
 [node name="Amy6iQ" type="Sprite2D" parent="."]
 visible = false
