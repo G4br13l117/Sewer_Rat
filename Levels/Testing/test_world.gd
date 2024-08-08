@@ -3,8 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SetCameraLimits()
-	#pass # Replace with function body.
+	#SetCameraLimits()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,7 +14,8 @@ func _process(_delta):
 	
 	
 func SetCameraLimits():
-	var FocusedCollisionArea = get_node("Main_Level/RightCollisionShape2D")
+	var FocusedCollisionArea = get_node("Main_Level/CollisionShape2D")
+	#var FocusedCollisionArea = get_node("Main_Level")
 	var AreaHeightLimit = FocusedCollisionArea.get_shape().size.y
 	#print(("AreaHeightLimit: %s") % AreaHeightLimit)
 	var AreaWidthLimit = FocusedCollisionArea.get_shape().size.x

@@ -11,6 +11,9 @@ var gravity = SPEED #ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var anim = get_node("AnimatedSprite2D")
 #@onready var anim = get_node("AnimationPlayer")
 
+func _ready():
+	SetCameraLimits()
+
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
@@ -61,3 +64,42 @@ func _physics_process(delta):
 			#Game.PlayerGold = 0
 			##get_tree().quit() #on death, quit the game
 	#
+func SetCameraLimits():
+	var FocusedCollisionArea = get_node("../Main_Level/CollisionShape2D")
+	#print(("../../%s/CollisionShape2D") % area.name)
+	var AreaHeightLimit = FocusedCollisionArea.get_shape().size.y
+	#print(("AreaHeightLimit: %s") % AreaHeightLimit)
+	var AreaWidthLimit = FocusedCollisionArea.get_shape().size.x
+	#print(("AreaWidthLimit: %s") % AreaWidthLimit)
+	var AreaPosition = FocusedCollisionArea.position
+	#var mapCellSize = $TileMap.cellSize
+
+	$Camera2D.limit_left 		= int(AreaPosition.x - (AreaWidthLimit/2))
+	#print(("Left limit: %s") 	% int(AreaPosition.x - (AreaWidthLimit/2)))
+	$Camera2D.limit_right 		= int(AreaPosition.x + (AreaWidthLimit/2))
+	#print(("Right limit: %s") 	% int(AreaPosition.x + (AreaWidthLimit/2)))
+	$Camera2D.limit_top 		= int(AreaPosition.y - (AreaHeightLimit/2))
+	#print(("Top limit: %s") 	% int(AreaPosition.y - (AreaWidthLimit/2)))
+	$Camera2D.limit_bottom 		= int(AreaPosition.y + (AreaHeightLimit/2))
+	#print(("Bottom limit: %s") 	% int(AreaPosition.y + (AreaWidthLimit/2)))
+
+func _on_area_2d_area_entered(area):
+	var FocusedCollisionArea = get_node(("../%s/CollisionShape2D") % area.name)
+	print(("../../%s/CollisionShape2D") % area.name)
+	var AreaHeightLimit = FocusedCollisionArea.get_shape().size.y
+	#print(("AreaHeightLimit: %s") % AreaHeightLimit)
+	var AreaWidthLimit = FocusedCollisionArea.get_shape().size.x
+	#print(("AreaWidthLimit: %s") % AreaWidthLimit)
+	var AreaPosition = FocusedCollisionArea.position
+	#var mapCellSize = $TileMap.cellSize
+	$Camera2D.limit_left 		= int(AreaPosition.x - (AreaWidthLimit/2))
+	print(("Left limit: %s") 	% int(AreaPosition.x - (AreaWidthLimit/2)))
+	$Camera2D.limit_right 		= int(AreaPosition.x + (AreaWidthLimit/2))
+	print(("Right limit: %s") 	% int(AreaPosition.x + (AreaWidthLimit/2)))
+	$Camera2D.limit_top 		= int(AreaPosition.y - (AreaHeightLimit/2))
+	print(("Top limit: %s") 	% int(AreaPosition.y - (AreaWidthLimit/2)))
+	$Camera2D.limit_bottom 		= int(AreaPosition.y + (AreaHeightLimit/2))
+	print(("Bottom limit: %s") 	% int(AreaPosition.y + (AreaWidthLimit/2)))
+	$Camera2D.position
+
+

@@ -4591,14 +4591,14 @@ layer_9/tile_data = PackedInt32Array(-327679, 7, 2, -262143, 7, 3, 196614, 7, 2,
 
 [node name="Left_Room" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Room"]
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="Left_Room"]
 position = Vector2(-480, 8)
 shape = SubResource("RectangleShape2D_6u035")
 debug_color = Color(0.521453, 0.418069, 1, 0.0784314)
 
 [node name="Main_Level" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Main_Level"]
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="Main_Level"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_6bhe3")
 debug_color = Color(0, 0.6, 0.701961, 0.129412)
