@@ -29,8 +29,13 @@ func _physics_process(delta):
 			anim.flip_h = false
 
 		# Handle jump.
-		if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")) and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+		if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_pressed("ui_down"):
+				set_collision_mask_value(2,false)
+			else:
+				velocity.y = JUMP_VELOCITY
+				set_collision_mask_value(2,true)
+
 		if not is_on_floor():
 			if (velocity.y >= -Peakrange) and (velocity.y <= Peakrange):
 				anim.play("Jump_Peak")
@@ -39,6 +44,11 @@ func _physics_process(delta):
 			elif velocity.y > Peakrange:
 				anim.play("Jump_Falling")
 
+			if Input.is_action_pressed("ui_down"):
+				set_collision_mask_value(2,false)
+			else:
+				set_collision_mask_value(2,true)
+				 
 		if direction:
 			velocity.x = direction * SPEED
 			if is_on_floor():
@@ -65,7 +75,7 @@ func _physics_process(delta):
 			##get_tree().quit() #on death, quit the game
 	#
 func SetCameraLimits():
-	var FocusedCollisionArea = get_node("../Main_Level/CollisionShape2D")
+	var FocusedCollisionArea = get_node("../Main_Level/CameraLimits")
 	#print(("../../%s/CollisionShape2D") % area.name)
 	var AreaHeightLimit = FocusedCollisionArea.get_shape().size.y
 	#print(("AreaHeightLimit: %s") % AreaHeightLimit)
@@ -84,8 +94,8 @@ func SetCameraLimits():
 	#print(("Bottom limit: %s") 	% int(AreaPosition.y + (AreaWidthLimit/2)))
 
 func _on_area_2d_area_entered(area):
-	var FocusedCollisionArea = get_node(("../%s/CollisionShape2D") % area.name)
-	print(("../../%s/CollisionShape2D") % area.name)
+	var FocusedCollisionArea = get_node(("../%s/CameraLimits") % area.name)
+	print(("../../%s/CameraLimits") % area.name)
 	var AreaHeightLimit = FocusedCollisionArea.get_shape().size.y
 	#print(("AreaHeightLimit: %s") % AreaHeightLimit)
 	var AreaWidthLimit = FocusedCollisionArea.get_shape().size.x
@@ -93,13 +103,11 @@ func _on_area_2d_area_entered(area):
 	var AreaPosition = FocusedCollisionArea.position
 	#var mapCellSize = $TileMap.cellSize
 	$Camera2D.limit_left 		= int(AreaPosition.x - (AreaWidthLimit/2))
-	print(("Left limit: %s") 	% int(AreaPosition.x - (AreaWidthLimit/2)))
+	#print(("Left limit: %s") 	% $Camera2D.limit_left)
 	$Camera2D.limit_right 		= int(AreaPosition.x + (AreaWidthLimit/2))
-	print(("Right limit: %s") 	% int(AreaPosition.x + (AreaWidthLimit/2)))
+	#print(("Right limit: %s") 	% $Camera2D.limit_right)
 	$Camera2D.limit_top 		= int(AreaPosition.y - (AreaHeightLimit/2))
-	print(("Top limit: %s") 	% int(AreaPosition.y - (AreaWidthLimit/2)))
+	#print(("Top limit: %s") 	% $Camera2D.limit_top)
 	$Camera2D.limit_bottom 		= int(AreaPosition.y + (AreaHeightLimit/2))
-	print(("Bottom limit: %s") 	% int(AreaPosition.y + (AreaWidthLimit/2)))
-	$Camera2D.position
-
+	#print(("Bottom limit: %s") 	% $Camera2D.limit_bottom)
 

@@ -474,19 +474,19 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h6t47"]
 radius = 9.0
-height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_54ntb"]
 radius = 9.0
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
+collision_mask = 3
 script = ExtResource("1_3xgqx")
 Peakrange = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_od5rg")
-animation = &"Idle"
+animation = &"Run"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -497,7 +497,6 @@ libraries = {
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_h6t47")
 
@@ -505,7 +504,6 @@ shape = SubResource("CapsuleShape2D_h6t47")
 position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_54ntb")

@@ -25,6 +25,11 @@ window/stretch/scale=3.0
 
 project/assembly_name="Sewer Rat"
 
+[layer_names]
+
+2d_physics/layer_1="Solid Blocks"
+2d_physics/layer_2="Platforms"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
