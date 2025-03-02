@@ -1,15 +1,15 @@
 [gd_scene load_steps=69 format=3 uid="uid://dc34w44a134js"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_3xgqx"]
-[ext_resource type="Texture2D" uid="uid://ucst273q8rqt" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="2_l3aox"]
-[ext_resource type="Texture2D" uid="uid://bf11m7nmh6rnt" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Jump/player jump 48x48.png" id="4_gmas2"]
-[ext_resource type="Texture2D" uid="uid://rdl64h44eglt" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Land/player land 48x48.png" id="5_x101v"]
-[ext_resource type="Texture2D" uid="uid://dwu2wsatkhdps" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Run/player run 48x48.png" id="6_u75mh"]
-[ext_resource type="Texture2D" uid="uid://g44af62wt40n" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Idle/Player Idle 48x48.png" id="7_103y8"]
-[ext_resource type="Texture2D" uid="uid://whwnyqcn5hdl" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Wall Land/Player Wall Land (left) 48x48.png" id="7_f01qq"]
-[ext_resource type="Texture2D" uid="uid://cglyknwlnos6h" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Wall Land/player wall land 48x48.png" id="8_y2hoy"]
-[ext_resource type="Texture2D" uid="uid://dtpofnwnduve6" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Wall Slide/player wall slide (left) 48x48.png" id="9_j24s3"]
-[ext_resource type="Texture2D" uid="uid://vs3ri56jbkkp" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Wall Slide/player wall slide 48x48.png" id="10_enmj4"]
+[ext_resource type="Texture2D" uid="uid://ucst273q8rqt" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="2_l3aox"]
+[ext_resource type="Texture2D" uid="uid://bf11m7nmh6rnt" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Jump/player jump 48x48.png" id="4_gmas2"]
+[ext_resource type="Texture2D" uid="uid://rdl64h44eglt" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Land/player land 48x48.png" id="5_x101v"]
+[ext_resource type="Texture2D" uid="uid://dwu2wsatkhdps" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Run/player run 48x48.png" id="6_u75mh"]
+[ext_resource type="Texture2D" uid="uid://g44af62wt40n" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Idle/Player Idle 48x48.png" id="7_103y8"]
+[ext_resource type="Texture2D" uid="uid://whwnyqcn5hdl" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Wall Land/Player Wall Land (left) 48x48.png" id="7_f01qq"]
+[ext_resource type="Texture2D" uid="uid://cglyknwlnos6h" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Wall Land/player wall land 48x48.png" id="8_y2hoy"]
+[ext_resource type="Texture2D" uid="uid://dtpofnwnduve6" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Wall Slide/player wall slide (left) 48x48.png" id="9_j24s3"]
+[ext_resource type="Texture2D" uid="uid://vs3ri56jbkkp" path="res://Asset Packs/Asset Packs 1-5(3_31)/Asset Packs 1-5/Asset Packs 1-5/Asset Pack-V1/Player Wall Slide/player wall slide 48x48.png" id="10_enmj4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yafdr"]
 atlas = ExtResource("2_l3aox")
@@ -486,7 +486,7 @@ Peakrange = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_od5rg")
-animation = &"Run"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -502,6 +502,12 @@ shape = SubResource("CapsuleShape2D_h6t47")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
 
 [node name="Area2D" type="Area2D" parent="."]
 
